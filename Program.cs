@@ -9,7 +9,36 @@
 ["Russia", "Denmark", "Kazan"] → []
 */
 
-string[] line1 = new string ["Hello", "2", "world", ":-)"];
-string[] line2 = new string ["1234", "1567", "-2", "computer science"];
-string[] line3 = new string ["Russia", "Denmark", "Kazan"];
+string[] linesArray1 = new string[] {"Hello", "2", "world", ":-)"};
+// string[] linesArray2 = new string ["1234", "1567", "-2", "computer science"];
+// string[] linesArray3 = new string ["Russia", "Denmark", "Kazan"];
 
+
+string[] GetShortLines(string[] arr)
+{
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            count++;
+        }
+    }
+
+    string[] resArray = new string[count];
+    count = 0;
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            resArray[count] = arr[i];
+            count++;
+        }
+    }
+
+    return resArray;
+}
+
+string[] shortLinesArray = GetShortLines(linesArray1);
+Console.WriteLine($"Array: [{string.Join(", ", shortLinesArray)}]");
