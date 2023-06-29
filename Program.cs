@@ -9,11 +9,6 @@
 ["Russia", "Denmark", "Kazan"] → []
 */
 
-string[] linesArray1 = new string[] {"Hello", "2", "world", ":-)"};
-// string[] linesArray2 = new string ["1234", "1567", "-2", "computer science"];
-// string[] linesArray3 = new string ["Russia", "Denmark", "Kazan"];
-
-
 string[] GetShortLines(string[] arr)
 {
     int count = 0;
@@ -26,19 +21,29 @@ string[] GetShortLines(string[] arr)
     }
 
     string[] resArray = new string[count];
-    count = 0;
-
-    for (int i = 0; i < arr.Length; i++)
+    int index = 0;
+    for (int j = 0; j < arr.Length; j++)
     {
-        if (arr[i].Length <= 3)
+        if (arr[j].Length <= 3)
         {
-            resArray[count] = arr[i];
-            count++;
+            resArray[index] = arr[j];
+            index++;
         }
     }
 
     return resArray;
 }
 
+
+string[] linesArray1 = { "Hello", "2", "world", ":-)" };
+string[] linesArray2 = { "1234", "1567", "-2", "computer science" };
+string[] linesArray3 = { "Russia", "Denmark", "Kazan" };
+
 string[] shortLinesArray = GetShortLines(linesArray1);
-Console.WriteLine($"Array: [{string.Join(", ", shortLinesArray)}]");
+Console.WriteLine($"[{string.Join(", ", linesArray1)}] -> [{string.Join(", ", shortLinesArray)}]");
+
+shortLinesArray = GetShortLines(linesArray2);
+Console.WriteLine($"[{string.Join(", ", linesArray2)}] -> [{string.Join(", ", shortLinesArray)}]");
+
+shortLinesArray = GetShortLines(linesArray3);
+Console.WriteLine($"[{string.Join(", ", linesArray3)}] -> [{string.Join(", ", shortLinesArray)}]");
